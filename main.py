@@ -14,6 +14,8 @@ def input_error(handler):
 def add_contact(contacts, name, phone):
     if not name or not phone:
         raise ValueError("Give me name and phone please")
+    if name in contacts:
+        raise ValueError("Contact already exists")
     contacts[name] = phone
     return f"Contact {name} added"
 
